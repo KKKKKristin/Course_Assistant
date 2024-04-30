@@ -1,4 +1,4 @@
-# E-TA 
+# Couese_Assistant
 ## The AI chatbot for AI Teaching Assistant
 
 ## How to run this 
