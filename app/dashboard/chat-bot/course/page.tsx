@@ -65,9 +65,9 @@ const Page = () => {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
-    const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/ask', {
+    // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/ask', {
 
-    // const response = await fetch('http://lax.nonev.win:5000/ask', {
+    const response = await fetch('http://lax.nonev.win:5000/ask', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

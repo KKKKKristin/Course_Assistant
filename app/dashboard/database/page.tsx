@@ -23,8 +23,8 @@ const Page = () => {
 
   const fetchCourses = async () => {
     try {
-      // const response = await fetch('http://lax.nonev.win:5000/list-tables?region-name=us-west-1');
-      const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/list-tables?region-name=us-west-1');
+      const response = await fetch('http://lax.nonev.win:5000/list-tables?region-name=us-west-1');
+      // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/list-tables?region-name=us-west-1');
 
       
       const data = await response.json();

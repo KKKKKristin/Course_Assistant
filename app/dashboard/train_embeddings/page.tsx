@@ -257,7 +257,8 @@ const handleUpload = async () => {
         formData.append('video', file.originFileObj, file.name);
 
         try {
-          const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-rawVideo', {
+          const response = await fetch('http://lax.nonev.win:5000/upload-rawVideo', {
+          // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-rawVideo', {
             method: 'POST',
             body: formData,
             signal: abortController.signal,

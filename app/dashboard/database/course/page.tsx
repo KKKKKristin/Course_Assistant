@@ -86,7 +86,8 @@ export default function ItemsPage() {
     };
 
     try {
-      const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/readDB', {
+          const response = await fetch('http://lax.nonev.win:5000/readDB', {
+      // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/readDB', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -184,8 +185,8 @@ export default function ItemsPage() {
   
         try {
           // 发送删除请求
-          // const response = await fetch('http://lax.nonev.win:5000/itemDelete', {
-          const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/itemDelete', {
+          const response = await fetch('http://lax.nonev.win:5000/itemDelete', {
+          // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/itemDelete', {
 
             
             method: 'POST',
@@ -239,8 +240,8 @@ export default function ItemsPage() {
       };
 
       console.log("file id: "+ requestBody.fileID);
-
-      const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-json', {
+      const response = await fetch('http://lax.nonev.win:5000/upload-json', {
+      // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -374,7 +375,8 @@ const handleUpload = async () => {
         formData.append('video', file.originFileObj, file.name);
 
         try {
-          const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-rawVideo', {
+      const response = await fetch('http://lax.nonev.win:5000/upload-rawVideo', {
+          // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/upload-rawVideo', {
             method: 'POST',
             body: formData,
             signal: abortController.signal,
@@ -472,7 +474,8 @@ const handleDeleteSelected = () => {
     };
 
     try {
-      const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/itemDelete', {
+      const response = await fetch('http://lax.nonev.win:5000/itemDelete', {
+      // const response = await fetch('https://tr1d2wl0fl.execute-api.us-east-2.amazonaws.com/itemDelete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
