@@ -81,7 +81,9 @@ const Page = () => {
 
     const data = await response.json();
     console.log(data);
-    setMessages((prevMessages) => [...prevMessages, `You: ${input}\n`, `Bot: ${data.answer}`]);
+    // setMessages((prevMessages) => [...prevMessages, `You: ${input}\n`, `Bot: ${data.answer}`]);
+    setMessages((prevMessages) => [...prevMessages, `You: ${input}\n`, `Bot: Sorry, No answer provided.`]);
+
     setInput('');
   };
 
