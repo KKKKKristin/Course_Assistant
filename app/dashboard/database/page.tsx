@@ -77,8 +77,6 @@ const Page = () => {
         <title>Courses Database</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      {/* <div className="flex flex-col bg-white-100 min-h-screen"> */}
-        {/* <div className="p-5 bg-white shadow-md flex-grow overflow-auto"> */}
           <header className="mb-5 text-left">
             <h1 className="text-xl text-blue-600">Courses Accessible in Database</h1>
           </header>
@@ -123,11 +121,6 @@ const Page = () => {
               </div>
             </section>
           </main>
-        {/* </div> */}
-        {/* <footer className="text-center mt-auto p-5">
-          <p>Contact us at <a href="mailto:support@yourdomain.com" className="text-blue-600 hover:text-blue-800">support@yourdomain.com</a></p>
-        </footer> */}
-      {/* </div> */}
     </div>
   );
 };

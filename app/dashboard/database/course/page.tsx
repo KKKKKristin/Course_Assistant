@@ -42,17 +42,6 @@ export default function ItemsPage() {
   const searchParams = useSearchParams()
   // const searchParams = router.query;
 
-  
-
-  // useEffect(() => {
-  //   if (router.isReady) {  // 确保router对象已准备好
-  //     const { courseId, courseName } = router.query;
-  //     setCourseId(courseId);
-  //     setCourseName(courseName);
-  //     console.log("database coursename:"+ courseName);
-  //     fetchData();
-  //   }
-  // }, [router.isReady, router.query]);
 
   useEffect(() => {
         const courseId = searchParams.get('courseId') || '';
@@ -62,7 +51,6 @@ export default function ItemsPage() {
         setCourseId(courseId);
         setCourseName(courseName);
         console.log("ready for databse: course ID and Name." + courseId + courseName);
-        //here fetchdata() is in useeffect(), this is the first one, so pass the aram coursename in(else it can't set by  setCourseName(courseName);)
         fetchData(courseName);
   }, [courseName]);
 
@@ -152,7 +140,6 @@ export default function ItemsPage() {
       fetchData(courseName);
       setIsEditModalVisible(false);
       form.resetFields();
-      // Optionally refresh items list or update state directly here
     } catch (error) {
       console.error('There was an error updating the item:', error);
       message.error('Failed to update the item.');
@@ -270,12 +257,7 @@ export default function ItemsPage() {
 
   //---------------------upload video---------------------
   
-  // const beforeUpload = (file) => {
-  //   // Update the file list state to include the new file
-  //   setFileList([file]);
-  //   // Return false to stop automatic upload
-  //   return false;
-  // };
+
   const beforeUpload = (file: RcFile): boolean => {
     const fileForUpload: UploadFile = {
         uid: file.uid, // 确保每个文件有唯一的 ID
@@ -292,66 +274,8 @@ export default function ItemsPage() {
   
 
 
-  // Step 1: Declare a variable for the AbortController outside of the handleUpload function
+  //Declare a variable for the AbortController outside of the handleUpload function
 let abortController = new AbortController();
-
-// const handleUpload = async () => {
-//   if (fileList.length > 0) {
-//     console.log("Uploading files...");
-//     // Re-initialize the abort controller for a new set of requests
-//     abortController = new AbortController();
-
-//     // Display a loading message
-//     const hide = message.loading('Please wait a moment for video uploading...', 0);
-  
-//     let uploadFailed = false;
-//     let uploadAborted = false;
-  
-//     for (const file of fileList) {
-//       const formData = new FormData();
-//       formData.append('courseID', courseName);
-//       formData.append('video', file);
-
-  
-//       try {
-//         // Step 2: Include the abort signal in the fetch request
-//         const response = await fetch('http://lax.nonev.win:5000/upload-rawVideo', {
-//           method: 'POST',
-//           body: formData,
-//           signal: abortController.signal, // Include the abort signal
-//         });
-  
-//         if (!response.ok) {
-//           throw new Error(`Network response was not ok for ${file.name}.`);
-//         }
-  
-//         const data = await response.json();
-//         console.log(`${file.name} uploaded successfully:`, data);
-//       } catch (error) {
-//         if ((error as Error).name === 'AbortError') {
-//           console.log('Upload aborted by the user:', file.name);
-//           message.error('Upload canceled.');
-//           uploadAborted = true;
-//           break; // Exit the loop if the upload was aborted
-//         } else {
-//           console.error('There was an error uploading a file:', error);
-//           uploadFailed = true;
-//         }
-//       }
-//     }
-  
-//     hide(); // Hide the loading message regardless of outcome
-  
-//     if (!uploadFailed && !uploadAborted) {
-//       message.success('All files uploaded successfully.');
-//       setFileList([]); // Clear the file list after successful upload
-//     }
-//     setIsUploadModalVisible(false); // Close the modal
-//   } else {
-//     console.error("No file selected");
-//     message.error("No file selected.");
-//   }
-// };
 
 const handleUpload = async () => {
 
@@ -488,7 +412,6 @@ const handleDeleteSelected = () => {
       }
 
       const data = await response.json();
-      // message.success('Item deleted successfully');
 
       // Optionally refresh the list or update state directly
       setItems(prevItems => prevItems.filter(item => item.ID !== itemId));
@@ -499,34 +422,6 @@ const handleDeleteSelected = () => {
       return Promise.reject(error);
     }
   };
-
-  // const handleDeleteSelected = () => {
-  //   if (selectedItems.size === 0) {
-  //     // Optionally alert the user or disable the delete button when nothing is selected
-  //     return;
-  //   }
-  
-  //   Modal.confirm({
-  //     title: 'Are you sure you want to delete selected items?',
-  //     content: 'This action cannot be undone.',
-  //     onOk: () => {
-  //       console.log('Deleting selected items:', Array.from(selectedItems));
-  //       // Assuming you have a function to actually perform the deletion
-  //       handleDelete(Array.from(selectedItems));
-  //       setSelectedItems(new Set()); // Clear the selection after deletion
-  //     },
-  //     okText: "Delete",
-  //     okType: 'danger', // Makes the button red, indicating a destructive action
-  //     okButtonProps: {
-  //       style: { color: 'white', backgroundColor: 'red', borderColor: 'darkred' }
-  //     },
-  //     onCancel() {
-  //       console.log('Deletion cancelled');
-  //     },
-  //     cancelText: "Cancel",
-  //   });
-  // };
-
 
 
 
